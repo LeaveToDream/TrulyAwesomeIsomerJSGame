@@ -1,0 +1,37 @@
+
+
+body {
+  background: url('../../assets/img/back.png');
+  background-size: cover;
+  margin : 0 ;
+  width : 100% ;
+}
+
+.canvas {
+  width : 700px;
+  height : 400px;
+  position : absolute ;
+  top : 50% ;
+  left : 50% ;
+  transform:translate(-50%,-50%);
+}
+
+#Background {
+  @extend .canvas;
+  z-index: 10 ;
+}
+
+#Middleground {
+  @extend .canvas;
+  z-index: 20 ;
+}
+
+#DaPlace {
+  @extend .canvas;
+  z-index: 30 ;
+}
+
+#Foreground {
+  @extend .canvas;
+  z-index: 40 ;
+}
