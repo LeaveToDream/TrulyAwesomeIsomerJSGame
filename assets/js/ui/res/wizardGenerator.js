@@ -1,4 +1,4 @@
-/* global Point, Path, Shape, white, black */
+/* global Point, Path, Shape, white, black, Color */
 
 function generateWizard (color, vertices) {
   // Member per member
@@ -61,11 +61,14 @@ function generateWizard (color, vertices) {
   var wizard = {
     body: body,
     hat: hat,
-    color: [color, color, white, color]
+    color: [color, color, white, color, black]
   };
 
   if (color.r === 255 && color.g === 255 && color.b === 255) {
     wizard.color[2] = black;
+  }
+  if (color.r === 0 && color.g === 0 && color.b === 0) {
+    wizard.color[4] = new Color(40, 40, 40);
   }
 
   return wizard;
@@ -77,11 +80,11 @@ function drawWizard (iso, wizard, origin, rotate) {
   var z = origin.z;
 
   // Drawing the body
-  iso.add(wizard.body.leftLeg.translate(x, y, z), black);
-  iso.add(wizard.body.rightLeg.translate(x, y, z), black);
-  iso.add(wizard.body.leftArm.translate(x, y, z), black);
+  iso.add(wizard.body.leftLeg.translate(x, y, z), wizard.color[4]);
+  iso.add(wizard.body.rightLeg.translate(x, y, z), wizard.color[4]);
+  iso.add(wizard.body.leftArm.translate(x, y, z), wizard.color[4]);
   iso.add(wizard.body.belly.translate(x, y, z), wizard.color[0]);
-  iso.add(wizard.body.rightArm.translate(x, y, z), black);
+  iso.add(wizard.body.rightArm.translate(x, y, z), wizard.color[4]);
   iso.add(wizard.body.head.translate(x, y, z), wizard.color[0]);
 
   // Drawing the hat
