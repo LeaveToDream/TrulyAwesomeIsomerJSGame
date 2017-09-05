@@ -5,27 +5,11 @@ body {
   width: 100%;
 }
 
-.canvas, #Background, #Middleground, #DaPlace, #Foreground {
+.canvas {
   width: 950px;
   height: 600px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-#Background {
-  z-index: 10;
-}
-
-#Middleground {
-  z-index: 20;
-}
-
-#DaPlace {
-  z-index: 30;
-}
-
-#Foreground {
-  z-index: 40;
 }

@@ -1,0 +1,400 @@
+body {
+  background: url("../img/back.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: bottom;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.color {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  transition: color 0.25s ease-in-out;
+}
+
+#timer {
+  position: relative;
+  margin: 20px auto auto;
+  text-align: center;
+}
+
+.timelabel {
+  font-size: 1.3em;
+  padding-top: 30px;
+  transition: 0.25s ease-in-out;
+}
+
+.time {
+  font-size: 7em;
+  transition: 0.25s ease-in-out;
+}
+
+#player-container {
+  position: fixed;
+  bottom: 0;
+  left: 30px;
+  background-color: #2c3e50;
+  height: 75px;
+  width: 420px;
+  transform: skewX(40deg);
+  z-index: 2;
+}
+
+#player-container #bar-container {
+  transform: skewX(-40deg);
+}
+
+#player-container i {
+  font-size: 20px;
+  left: 3px;
+}
+
+.generic-content, #health-text,
+#mana-text,
+#stamina-text, #max-health-text,
+#max-mana-text,
+#max-stamina-text {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 900;
+  width: 25px;
+  margin: 0 5px;
+}
+
+#health-text,
+#mana-text,
+#stamina-text {
+  text-align: right;
+}
+
+#max-health-text,
+#max-mana-text,
+#max-stamina-text {
+  text-align: center;
+}
+
+.generic-bar, #health-bar, #mana-bar, #stamina-bar {
+  display: inline-block;
+  height: 15px;
+  transform: skewX(40deg);
+  background-color: rgba(0, 0, 0, 0.65);
+  overflow: hidden;
+  position: relative;
+}
+
+.level {
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  top: 0;
+  transition: left 0.2s linear;
+}
+
+#health {
+  color: #e74c3c;
+  height: 25px;
+  margin-left: 0;
+}
+
+#health-bar {
+  width: calc(100% - 160px);
+}
+
+#health-bar .level {
+  background-color: #e74c3c;
+}
+
+#mana {
+  color: #3498db;
+  height: 25px;
+  margin-left: 20px;
+}
+
+#mana-bar {
+  width: calc(100% - 140px);
+}
+
+#mana-bar .level {
+  background-color: #3498db;
+}
+
+#stamina {
+  color: #dbce34;
+  height: 25px;
+  margin-left: 40px;
+}
+
+#stamina i {
+  margin: 0 5px;
+}
+
+#stamina-bar {
+  width: calc(100% - 120px);
+}
+
+#stamina-bar .level {
+  background-color: #dbce34;
+}
+
+#right-corner {
+  position: fixed;
+  bottom: 0;
+  right: -45px;
+  background-color: #111;
+  height: 75px;
+  width: 75px;
+  transform: skewX(-40deg);
+  z-index: 1;
+}
+
+#left-corner {
+  height: 75px;
+  width: 75px;
+  background-color: #111;
+  bottom: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+@keyframes scaleUpDown {
+  0%,
+  100% {
+    transform: scaleY(1) scaleX(1);
+  }
+  50%,
+  90% {
+    transform: scaleY(1.1);
+  }
+  75% {
+    transform: scaleY(0.95);
+  }
+  80% {
+    transform: scaleX(0.95);
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: skewX(0) scale(1);
+  }
+  50% {
+    transform: skewX(5deg) scale(0.9);
+  }
+}
+
+@keyframes particleUp {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    top: -100%;
+    transform: scale(0.5);
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    background-color: #2fa8ef;
+  }
+  50% {
+    background-color: #2fefe6;
+  }
+}
+
+.generic-flame, .generic-flame-alt, .flame-right, .flame-left, .flame-main {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  animation: scaleUpDown 3s ease-out;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+.generic-flame-alt, .flame-right, .flame-left {
+  animation-name: shake;
+}
+
+.generic-main-flame, .flame-main .main-flame, .flame-right .main-flame, .flame-left .main-flame {
+  position: absolute;
+  transform: scaleX(0.8) rotate(45deg);
+  border-radius: 0 40% 60% 40%;
+  filter: drop-shadow(0 0 10px #Oe04c3);
+}
+
+.generic-particle-flame, .flame-main .particle-flame, .flame-right .particle-flame, .flame-left .particle-flame {
+  position: absolute;
+  background-color: #2fa8ef;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 10px #Oe04c3);
+  animation: particleUp ease-out;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+.flame {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  background-color: #111;
+  margin-top: 48px;
+  margin-left: 8px;
+}
+
+.flame-main .main-flame {
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(farthest-corner at 10px 0, #0e04a1 0%, #2fa8ef 95%);
+}
+
+.flame-main .particle-flame {
+  animation-duration: 3s;
+  top: 60%;
+  left: 45%;
+  width: 10%;
+  height: 10%;
+}
+
+.flame-right {
+  animation-duration: 2s;
+}
+
+.flame-right .main-flame {
+  top: 15%;
+  right: -25%;
+  width: 80%;
+  height: 80%;
+  background-color: #2fa8ef;
+}
+
+.flame-right .particle-flame {
+  animation-duration: 2s;
+  top: 45%;
+  left: 50%;
+  width: 15%;
+  height: 15%;
+  transform: scaleX(0.8) rotate(45deg);
+}
+
+.flame-left .main-flame {
+  top: 15%;
+  left: -20%;
+  width: 80%;
+  height: 80%;
+  background-color: #2fa8ef;
+}
+
+.flame-left .particle-flame {
+  animation-duration: 2.5s;
+  top: 10%;
+  left: 20%;
+  width: 7%;
+  height: 7%;
+}
+
+.flame-bottom .main-flame {
+  position: absolute;
+  top: 30%;
+  left: 20%;
+  width: 75%;
+  height: 75%;
+  background-color: #ff7800;
+  transform: scaleX(0.8) rotate(45deg);
+  border-radius: 0 40% 100% 40%;
+  filter: blur(10px);
+  animation: glow 2s ease-out 0;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+#menu-background {
+  height: 75px;
+  width: 100%;
+  background: rgba(17, 17, 17, 0.65);
+  bottom: 0px;
+  position: absolute;
+  z-index: 0;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.slider {
+  width: calc(100% - 580px);
+  margin-left: 500px;
+}
+
+.slick-slide {
+  margin: 5px 5px;
+  height: 55px;
+  transition: all ease-in-out .3s;
+  opacity: .2;
+}
+
+.slick-slide img {
+  height: 100%;
+  margin: auto;
+}
+
+.slick-active {
+  opacity: .5;
+}
+
+.slick-current {
+  height: 65px;
+  opacity: 1;
+}
+
+.slick-new-prev, .slick-new-next {
+  font-size: 2em;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  display: block;
+  padding: 0;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  cursor: pointer;
+  color: #DDD;
+  border: none;
+  outline: none;
+  opacity: 0.9;
+}
+
+.slick-new-prev:hover, .slick-new-next:hover {
+  color: white;
+  opacity: 1;
+}
+
+.slick-new-prev {
+  left: -25px;
+}
+
+.slick-new-next {
+  right: -25px;
+}

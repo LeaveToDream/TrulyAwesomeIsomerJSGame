@@ -6,27 +6,39 @@
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
   <body>
-    <canvas class="canvas" id="Background" width="1900" height="1200"></canvas>
-    <canvas class="canvas" id="Middleground" width="1900" height="1200"></canvas>
-    <canvas class="canvas" id="DaPlace" width="1900" height="1200"></canvas>
-    <canvas class="canvas" id="Foreground" width="1900" height="1200"></canvas>
+    <div id="canvasContainer"></div>
   </body>
-  <!-- First of all, include the lib for isomerJS. -->
-  <script type="text/javascript" src="assets/js/ui/isomer.min.js" charset="utf-8"></script>
+  <!-- First of all, include the libs. -->
+
+  <script type="text/javascript" src="assets/js/lib/jquery.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="assets/js/lib/pathfinding.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="assets/js/lib/isomer.min.js" charset="utf-8"></script>
+
   <!-- Then the initializer for isomer vars and common functions  -->
-  <script type="text/javascript" src="assets/js/ui/isomer.config.js" charset="utf-8"></script>
+  <script type="text/javascript" src="assets/js/bld/isomer.config.js" charset="utf-8"></script>
+
   <!-- Then ressources "classes" -->
-  <script type="text/javascript" src="assets/js/ui/res/gelaxGenerator.js" charset="utf-8"></script>
-  <script type="text/javascript" src="assets/js/ui/res/grid.js" charset="utf-8"></script>
-  <script type="text/javascript" src="assets/js/ui/res/groundGenerator.js" charset="utf-8"></script>
-  <script type="text/javascript" src="assets/js/ui/res/poolGenerator.js" charset="utf-8"></script>
-  <script type="text/javascript" src="assets/js/ui/res/rockGraveGenerator.js" charset="utf-8"></script>
-  <script type="text/javascript" src="assets/js/ui/res/tallTreeGenerator.js" charset="utf-8"></script>
-  <script type="text/javascript" src="assets/js/ui/res/uglyRockGenerator.js" charset="utf-8"></script>
-  <script type="text/javascript" src="assets/js/ui/res/uglyRockGeneratorV2.js" charset="utf-8"></script>
-  <script type="text/javascript" src="assets/js/ui/res/wizardGenerator.js" charset="utf-8"></script>
-  <script type="text/javascript" src="assets/js/ui/res/woodGraveGenerator.js" charset="utf-8"></script>
+  <script type="text/javascript" src="assets/js/bld/gameRes/Coord.js" charset="utf-8"></script>
+  <script type="text/javascript" src="assets/js/bld/gameRes/Game.js" charset="utf-8"></script>
+  <script type="text/javascript" src="assets/js/bld/gameRes/Coord.js" charset="utf-8"></script>
+  <script type="text/javascript" src="assets/js/bld/gameRes/Player.js" charset="utf-8"></script>
+  <script type="text/javascript" src="assets/js/bld/gameRes/GelaxPlayer.js" charset="utf-8"></script>
+  <script type="text/javascript" src="assets/js/bld/gameRes/Ressources.js" charset="utf-8"></script>
+  <script type="text/javascript" src="assets/js/bld/gameRes/WizardPlayer.js" charset="utf-8"></script>
+  <script type="text/javascript" src="assets/js/bld/gameRes/World.js" charset="utf-8"></script>
+
+  <script type="text/javascript" src="assets/js/bld/graphicRes/Canvas.js" charset="utf-8"></script>
+  <script type="text/javascript" src="assets/js/bld/graphicRes/Drawable.js" charset="utf-8"></script>
+  <script type="text/javascript" src="assets/js/bld/graphicRes/Gelax.js" charset="utf-8"></script>
+  <script type="text/javascript" src="assets/js/bld/graphicRes/Ground.js" charset="utf-8"></script>
+  <script type="text/javascript" src="assets/js/bld/graphicRes/GroundBloc.js" charset="utf-8"></script>
+  <script type="text/javascript" src="assets/js/bld/graphicRes/Pool.js" charset="utf-8"></script>
+  <script type="text/javascript" src="assets/js/bld/graphicRes/Rock.js" charset="utf-8"></script>
+  <script type="text/javascript" src="assets/js/bld/graphicRes/RockGrave.js" charset="utf-8"></script>
+  <script type="text/javascript" src="assets/js/bld/graphicRes/TallTree.js" charset="utf-8"></script>
+  <script type="text/javascript" src="assets/js/bld/graphicRes/Wizard.js" charset="utf-8"></script>
+  <script type="text/javascript" src="assets/js/bld/graphicRes/WoodGrave.js" charset="utf-8"></script>
 
   <!-- And finaly the drawer -->
-  <script type="text/javascript" src="assets/js/ui/isomer.draw.js" charset="utf-8"></script>
+  <script type="text/javascript" src="assets/js/bld/awesome.js" charset="utf-8"></script>
 </html>
