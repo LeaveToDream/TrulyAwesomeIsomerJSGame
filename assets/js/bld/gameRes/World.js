@@ -82,11 +82,11 @@ var World = (function () {
         }
     };
     World.prototype.moveEnemyPosition = function (enemy, x, y) {
-        if (this.map[enemy.position.getX()][enemy.position.getY()] == TILESTATE.PLAYER) {
+        if (this.map[enemy.position.getX()][enemy.position.getY()] == TILESTATE.ENEMY) {
             return this.setEnemyPosition(enemy, x, y);
         }
         else {
-            console.warn("Error moving Wizard from (" + enemy.position.x + ", " + enemy.position.y + ") to (" + x + "," + y + ") : No wizard in depart tile.");
+            console.warn("Error moving Enemy from (" + enemy.position.x + ", " + enemy.position.y + ") to (" + x + "," + y + ") : No Enemy in depart tile.");
             console.warn(enemy);
             return 1;
         }
@@ -159,68 +159,6 @@ var World = (function () {
             return new Coord(e[0], e[1]);
         });
     };
-    /*findPathOld(start: Coord, target: Coord) { // DEPRECATED
-      // TESTING VARS
-      const log = true;
-      const transp = true;
-      const bestFirst = false; // 0 for A*, 1 for BestFirst
-  
-  
-      // First turn map into PFgrid
-  
-      if (log) console.log("Looking for path from (" + start.x + " to " + start.y + ") to (" + target.x + ", " + target.y + ")")
-  
-      let preGrid = this.map.map(function(e) {
-        return e.map(function(f) {
-          return (f == TILESTATE.VOID) ? 0 : 1;
-        })
-      });
-  
-      if (transp) {
-        preGrid = this.transpose(preGrid);
-      }
-  
-      preGrid[start.x][start.y] = 0;
-      preGrid[target.x][target.y] = 0;
-      if (log) console.log("map")
-  
-      this.printMatrix(this.map);
-  
-      if (log) console.log("preGrid : ")
-      //console.log(preGrid);
-      if (log) this.printMatrix(preGrid);
-  
-      let grid = new PF.Grid(preGrid);
-  
-      if (log) console.log("Grid :")
-      if (log) console.log(grid);
-      //if (log) this.printMatrix(grid);
-  
-      // Then we select a finder
-      // For now, i choosed the more straight forward one. It may one day become a probleme
-      let finder: any;
-      if (bestFirst) {
-        finder = new PF.BestFirstFinder();
-      } else {
-        finder = new PF.AStarFinder();
-      }
-      /*let finder = new PF.JumpPointFinder({
-        diagonalMovement: PF.DiagonalMovement.Never
-      });*/
-    /*
-    // Use PF to compute that god damn best path
-    let path = finder.findPath(start.x, start.y, target.x, target.y, grid);
-
-
-
-    if (log) console.log("Path");
-    if (log) console.log(path);
-    // And finaly turn the path to something the rest of the game understand :)
-
-    return path.map(function(e) {
-      return new Coord(e[0], e[1]);
-    });
-  }*/
     World.prototype.printMatrix = function (matrix) {
         var temp = "";
         for (var i = 0; i < matrix.length; i++) {

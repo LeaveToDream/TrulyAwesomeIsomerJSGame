@@ -1,0 +1,200 @@
+@keyframes scaleUpDown {
+  0%,
+  100% {
+    transform: scaleY(1) scaleX(1);
+  }
+
+  50%,
+  90% {
+    transform: scaleY(1.1);
+  }
+
+  75% {
+    transform: scaleY(0.95);
+  }
+
+  80% {
+    transform: scaleX(0.95);
+  }
+}
+@keyframes shake {
+  0%,
+  100% {
+    transform: skewX(0) scale(1);
+  }
+
+  50% {
+    transform: skewX(5deg) scale(0.9);
+  }
+}
+@keyframes particleUp {
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    top: -100%;
+    transform: scale(0.5);
+  }
+}
+// Selection of element. Available are fire, water and arcane.
+$fire: #ef5a00;
+$fire-light: #ff7800;
+$fire-dark: #d43300;
+$fire-darker: #d43322;
+$water: #2fa8ef;
+$water-light: #2fefe6;
+$water-dark: #0e04a1;
+$water-darker: #Oe04c3;
+$arcane: #f55df7;
+$arcane-light: #fb6bea;
+$arcane-dark: #c203c4;
+$arcane-darker: #830484;
+$flame-color: $water;
+$flame-color-light: $water-light;
+$flame-color-dark: $water-dark;
+$flame-color-darker: $water-darker;
+$width: 20px;
+$height: 20px;
+@keyframes glow {
+  0%,
+  100% {
+    background-color: $flame-color;
+  }
+
+  50% {
+    background-color: $flame-color-light;
+  }
+}
+
+.generic-flame {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  animation: scaleUpDown 3s ease-out;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+.generic-flame-alt {
+  @extend .generic-flame;
+  animation-name: shake;
+}
+
+.generic-main-flame {
+  position: absolute;
+  transform: scaleX(0.8) rotate(45deg);
+  border-radius: 0 40% 60% 40%;
+  filter: drop-shadow(0 0 10px $flame-color-darker);
+}
+
+.generic-particle-flame {
+  position: absolute;
+  background-color: $flame-color;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 10px $flame-color-darker);
+  animation: particleUp ease-out;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+.flame {
+  position: relative;
+  width: $width;
+  height: $height;
+  background-color: #111;
+  margin-top: 48px;
+  margin-left: 8px;
+}
+
+.flame-main {
+  @extend .generic-flame;
+
+  .main-flame {
+    @extend .generic-main-flame;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(farthest-corner at 10px 0, $flame-color-dark 0%, $flame-color 95%);
+  }
+
+  .particle-flame {
+    @extend .generic-particle-flame;
+    animation-duration: 3s;
+    top: 60%;
+    left: 45%;
+    width: 10%;
+    height: 10%;
+  }
+}
+
+.flame-right {
+  @extend .generic-flame-alt;
+  animation-duration: 2s;
+
+  .main-flame {
+    @extend .generic-main-flame;
+    top: 15%;
+    right: -25%;
+    width: 80%;
+    height: 80%;
+    background-color: $flame-color;
+  }
+
+  .particle-flame {
+    @extend .generic-particle-flame;
+    animation-duration: 2s;
+    top: 45%;
+    left: 50%;
+    width: 15%;
+    height: 15%;
+    transform: scaleX(0.8) rotate(45deg);
+  }
+}
+
+.flame-left {
+  @extend .generic-flame-alt;
+
+  .main-flame {
+    @extend .generic-main-flame;
+    top: 15%;
+    left: -20%;
+    width: 80%;
+    height: 80%;
+    background-color: $flame-color;
+  }
+
+  .particle-flame {
+    @extend .generic-particle-flame;
+    animation-duration: 2.5s;
+    top: 10%;
+    left: 20%;
+    width: 7%;
+    height: 7%;
+  }
+}
+
+.flame-bottom {
+  .main-flame {
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    width: 75%;
+    height: 75%;
+    background-color: #ff7800;
+    transform: scaleX(0.8) rotate(45deg);
+    border-radius: 0 40% 100% 40%;
+    filter: blur(10px);
+    animation: glow 2s ease-out 0;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+  }
+}

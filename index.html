@@ -6,11 +6,86 @@
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
   <body>
+
     <div id="canvasContainer"></div>
+
+    <section>
+    	<div id="left-corner">
+    		<div class="flame">
+    			<div class="flame-left">
+    				<div class="main-flame"></div>
+    				<div class="particle-flame"></div>
+    			</div>
+    			<div class="flame-right">
+    				<div class="main-flame"></div>
+    				<div class="particle-flame"></div>
+    			</div>
+    			<div class="flame-main">
+    				<div class="main-flame"></div>
+    				<div class="particle-flame"></div>
+    			</div>
+    			<div class="flame-bottom">
+    				<div class="main-flame"></div>
+    			</div>
+    		</div>
+    	</div>
+    	<div id="player-container">
+    		<div id="bar-container">
+    			<div id="health">
+    				<i class="fa fa-heart"></i>
+    				<div id="health-text">99</div>
+    				/
+    				<div id="max-health-text">99</div>
+    				<div id="health-bar">
+    					<div class="level"></div>
+    				</div>
+    			</div>
+
+    			<div id="mana" >
+    				<i class="fa fa-star"></i>
+    				<div id="mana-text">99</div>
+    				/
+    				<div id="max-mana-text">99</div>
+    				<div id="mana-bar">
+    					<div class="level"></div>
+    				</div>
+    			</div>
+
+    			<div id="stamina" >
+    				<i class="fa fa-bolt"></i>
+    				<div id="stamina-text">99</div>
+    				/
+    				<div id="max-stamina-text">99</div>
+    				<div id="stamina-bar">
+    					<div class="level"></div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    	<div id="right-corner">
+    	</div>
+    	<div id="menu-background">
+    		<div id="inner-menu">
+    			<div id="slick-carousel" class="center slider">
+  		      <span><img src="assets/img/blue-pot-big.png"></span>
+  		      <span><img src="assets/img/green-pot-big.png"></span>
+  		      <span><img src="assets/img/red-pot-big.png"></span>
+  		      <span><img src="assets/img/blue-pot-big.png"></span>
+  		      <span><img src="assets/img/green-pot-big.png"></span>
+  		      <span><img src="assets/img/red-pot-big.png"></span>
+  		      <span><img src="assets/img/blue-pot-big.png"></span>
+  		      <span><img src="assets/img/green-pot-big.png"></span>
+  		      <span><img src="assets/img/red-pot-big.png"></span>
+    		  </div>
+    		</div>
+    	</div>
+    </section>
   </body>
   <!-- First of all, include the libs. -->
 
   <script type="text/javascript" src="assets/js/lib/jquery.min.js" charset="utf-8"></script>
+  <!--<script type="text/javascript" src="assets/js/lib/slick.js" charset="utf-8"></script>-->
+  <script type="text/javascript" src="assets/js/lib/toRemove.js" charset="utf-8"></script>
   <script type="text/javascript" src="assets/js/lib/pathfinding.min.js" charset="utf-8"></script>
   <script type="text/javascript" src="assets/js/lib/isomer.min.js" charset="utf-8"></script>
 
@@ -41,4 +116,5 @@
 
   <!-- And finaly the drawer -->
   <script type="text/javascript" src="assets/js/bld/awesome.js" charset="utf-8"></script>
+
 </html>

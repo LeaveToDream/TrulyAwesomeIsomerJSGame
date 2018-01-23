@@ -1,0 +1,64 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.slider {
+    width: calc(100% - 580px);
+    margin-left: 500px;
+}
+
+.slick-slide {
+  margin: 5px 5px;
+  height:55px;
+  transition: all ease-in-out .3s;
+  opacity: .2;
+}
+
+.slick-slide img {
+  height: 100%;
+  margin: auto;
+}
+
+.slick-active {
+  opacity: .5;
+}
+
+.slick-current {
+  height:65px;
+  opacity: 1;
+}
+
+.slick-new-prev,.slick-new-next{
+  font-size: 2em;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  display: block;
+  padding: 0;
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  cursor: pointer;
+  color: #DDD;
+  border: none;
+  outline: none;
+  opacity: 0.9;
+}
+
+.slick-new-prev:hover,.slick-new-next:hover{
+  color : white;
+  opacity: 1;
+}
+
+.slick-new-prev{
+  left:-25px;
+}
+
+.slick-new-next{
+  right:-25px;
+}

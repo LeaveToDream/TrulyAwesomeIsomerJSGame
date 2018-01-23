@@ -6,7 +6,7 @@ body {
   background-position: bottom;
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: sans-serif;
   color: white;
   background-color: transparent;
 }
@@ -166,6 +166,15 @@ body {
   z-index: 1;
 }
 
+#menu-background {
+  height: 75px;
+  width: 100%;
+  background: rgba(17, 17, 17, 0.65);
+  bottom: 0px;
+  position: absolute;
+  z-index: 0;
+}
+
 @keyframes scaleUpDown {
   0%,
   100% {
@@ -323,15 +332,6 @@ body {
   animation: glow 2s ease-out 0;
   animation-iteration-count: infinite;
   animation-fill-mode: both;
-}
-
-#menu-background {
-  height: 75px;
-  width: 100%;
-  background: rgba(17, 17, 17, 0.65);
-  bottom: 0px;
-  position: absolute;
-  z-index: 0;
 }
 
 html, body {

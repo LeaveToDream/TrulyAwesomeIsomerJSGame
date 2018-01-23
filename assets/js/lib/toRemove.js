@@ -19,8 +19,10 @@ function renew () {
 renew();
 
 $(document).ready(function () {
+  // $('#slick-carousel').slick();
+
   // Init slick carousel
-  $('#slick-carousel').slick({
+  /* $('#slick-carousel').slick({
     dots: false,
     infinite: true,
     centerMode: true,
@@ -30,15 +32,16 @@ $(document).ready(function () {
     // cssEase: true,
     focusOnSelect: true,
     nextArrow: "<i class=\"fa fa-angle-double-right slick-new-next\"></i>",
-    prevArrow: "<i class=\"fa fa-angle-double-left slick-new-prev\"></i>",
+    prevArrow: "<i class=\"fa fa-angle-double-left slick-new-prev\"></i>"
+  }); */
 
-  });
 
-  $('#slick-carousel').bind('mousewheel', function (e) {
+  /* $('#slick-carousel').bind('mousewheel', function (e) {
     if (e.originalEvent.wheelDelta / 120 > 0) {
       $('#slick-carousel').slick('slickNext');
     } else {
       $('#slick-carousel').slick('slickPrev');
     }
-  });
+  }); */
 });
+/* */
